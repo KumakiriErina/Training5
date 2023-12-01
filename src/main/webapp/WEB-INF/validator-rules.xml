@@ -1,0 +1,16 @@
+    <form-validation>
+    <global>
+    	<!-- 必須入力チェック -->
+        <validator name="required"
+                   classname="org.apache.struts.validator.ValidatorForm"
+                   method="validateRequired"
+                   methodParams="java.lang.Object,
+                       org.apache.commons.validator.ValidatorAction,
+                       org.apache.commons.validator.Field,
+                       org.apache.struts.action.ActionMessages,
+                       org.apache.commons.validator.Validator,
+                       javax.servlet.http.HttpServletRequest"
+                   msg="errors.required"/>
+                   
+    </global>
+</form-validation>
