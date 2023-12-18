@@ -91,7 +91,7 @@ public final class InputBirthdayAction extends Action {
 		}catch(ParseException pe) {
 			//Date型への変換がうまくいかなかった場合
 			System.out.println("変換がうまくいきませんでした");
-			pe.printStackTrace();;
+			pe.printStackTrace();
 		}
 
 		//おみくじの結果を/jsp/result.jspに渡す
