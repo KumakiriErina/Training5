@@ -102,7 +102,7 @@ public final class InputBirthdayAction extends Action {
 			addErrors(request, errors);	
 
 			//index.jspに遷移する
-			return mapping.findForward("fali");
+			return mapping.findForward("fail");
 		}
 
 		//おみくじの結果を/jsp/result.jspに渡す
