@@ -10,9 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.struts.action.Action;
+import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionMessage;
 
 import dao.OmikujiDAO;
 import dao.ResultDAO;
@@ -90,8 +92,17 @@ public final class InputBirthdayAction extends Action {
 
 		}catch(ParseException pe) {
 			//Date型への変換がうまくいかなかった場合
-			System.out.println("変換がうまくいきませんでした");
-			pe.printStackTrace();
+			ActionErrors errors = new ActionErrors();
+
+			//messageを格納するリストの作成して、キー値でpropertiesを検索している
+			ActionMessage msg = new ActionMessage("errors.msg.key1");
+			errors.add(ActionErrors.GLOBAL_MESSAGE, msg);
+
+			//親クラスのメソッドを呼び出す
+			addErrors(request, errors);	
+
+			//index.jspに遷移する
+			return mapping.findForward("fali");
 		}
 
 		//おみくじの結果を/jsp/result.jspに渡す
